@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import { UserData } from 'models';
+import { UserData } from '../models';
 
 export const addUuidToUserData = (userData: UserData) => {
   const uuid = randomUUID();

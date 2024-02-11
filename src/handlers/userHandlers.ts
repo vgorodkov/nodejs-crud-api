@@ -1,9 +1,10 @@
+import { UUID } from 'crypto';
+
 import { handleBadRequest } from './responseErrorHandlers';
 import { users } from '../db';
 import { validateUserData } from '../utils/validateUserData';
 import { addUuidToUserData } from '../utils/addUuidToUserData';
 import { SendResponseFunction, User, UserData } from '../models';
-import { UUID } from 'crypto';
 import { strings } from '../constants';
 
 export const handleGetUsers = (sendResponse: SendResponseFunction) => {
