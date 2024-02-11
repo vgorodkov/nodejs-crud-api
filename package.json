@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start:dev": "nodemon ./src/index.ts",
-    "start:prod": "npx tsc ./src/index.ts",
+    "start:prod": "npm run build && node ./dist/index.js",
     "multi": "nodemon ./src/multi.ts"
   },
   "keywords": [],
