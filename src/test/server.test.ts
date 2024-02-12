@@ -1,13 +1,13 @@
 import request from 'supertest';
 import { initServer } from '../server';
-import { BASE_ENDPOINT } from '../constants';
+
 import { Server } from 'http';
 import crypto, { randomUUID } from 'crypto';
 
 let server: Server;
 
 beforeAll(() => {
-  server = initServer(); // Подставьте правильный порт, например, 3000
+  server = initServer();
 });
 
 afterAll((done) => {
