@@ -26,7 +26,15 @@ import { getUserId } from './utils/getUserId';
 
 import { getUserData } from './utils/getUserData';
 
-const envPort = process.env.PORT || 4000;
+let envPort: number;
+
+if (cluster.isPrimary) {
+  envPort = Number(process.env.PORT) || 8000;
+} else if (cluster.isWorker) {
+  if (cluster.worker) {
+    envPort = cluster.worker?.id + Number(process.env.PORT);
+  }
+}
 
 export const initServer = (): Server => {
   const server = createServer((req, res) => {
