@@ -38,6 +38,12 @@ This API provides endpoints to manage user data:
 4. **PUT api/users/{userId}**: Update an existing user's information.
 5. **DELETE api/users/{userId}**: Delete an existing user from the database.
 
+**Postman is recommended to use for testing endpoints.**
+
+Jest and Supertest is used for testing.
+
+- Run `npm run test`
+
 ### User Object Properties
 
 Each user object stored in the database contains the following properties:
