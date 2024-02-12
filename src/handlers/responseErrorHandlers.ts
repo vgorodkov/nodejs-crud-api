@@ -8,10 +8,10 @@ export const handleNotFound = (sendResponse: SendResponseFunction, message: stri
   sendResponse({ statusCode: 404, body: message });
 };
 
-export const handleServerError = (sendResponse: SendResponseFunction, message: string) => {
-  sendResponse({ statusCode: 500, body: message });
+export const handleServerError = (sendResponse: SendResponseFunction) => {
+  sendResponse({ statusCode: 500, body: 'Error occured on the Server' });
 };
 
 export const handleInvalidMethod = (sendResponse: SendResponseFunction) => {
-  sendResponse({ statusCode: 500, body: 'Invilid method used for this endpoint' });
+  sendResponse({ statusCode: 400, body: 'Invilid method used for this endpoint' });
 };
