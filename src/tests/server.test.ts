@@ -17,15 +17,13 @@ afterAll((done) => {
 describe('GET HttpMethod', () => {
   test('should return empty array with status code 200', async () => {
     const response = await request(server).get('/api/users');
-
-    expect(response.text).toEqual(JSON.stringify({ statusCode: 200, body: [] }));
+    expect(response.status).toEqual(200);
+    expect(response.text).toEqual(JSON.stringify([]));
   });
   test('should return There is no user with this id with status code 404 if there is no user with such id', async () => {
     const response = await request(server).get(`/api/users/${randomUUID()}`);
-
-    expect(response.text).toEqual(
-      JSON.stringify({ statusCode: 404, body: 'There is no user with this id' }),
-    );
+    expect(response.status).toEqual(404);
+    expect(response.text).toEqual(JSON.stringify('There is no user with this id'));
   });
 });
 
@@ -35,6 +33,7 @@ describe('POST HttpMethod', () => {
   test('shoid create new object and response with it', async () => {
     jest.spyOn(crypto, 'randomUUID').mockReturnValue(mockUuid);
     const response = await request(server).post('/api/users').send(user);
-    expect(response.text).toEqual(JSON.stringify({ statusCode: 201, body: user }));
+    expect(response.status).toEqual(201);
+    expect(response.text).toEqual(JSON.stringify(user));
   });
 });
