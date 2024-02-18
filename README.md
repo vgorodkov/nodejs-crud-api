@@ -49,7 +49,7 @@ Jest and Supertest is used for testing.
 Each user object stored in the database contains the following properties:
 
 - **id**: A unique identifier generated on the server side (string, UUID).
-- **username**: The user's name (string, required).
+- **name**: The user's name (string, required).
 - **age**: The user's age (number, required).
 - **hobbies**: An array of strings representing the user's hobbies, or an empty array if none are provided (required).
 
